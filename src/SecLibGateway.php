@@ -231,7 +231,7 @@ class SecLibGateway implements GatewayInterface
     protected function readRsaKey(array $auth)
     {
         if (isset($auth['key'])) {
-            return $this->files->get($auth['key']);
+            return decrypt($this->files->get($auth['key']));
         }
 
         return $auth['keytext'];
